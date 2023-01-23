@@ -1,0 +1,16 @@
+name: Install Dependencies
+description: |
+  Install build dependencies to test and compile Buildome
+inputs: {}
+runs:
+  using: composite
+  steps:
+    - name: Install Compilers & Formatters
+      shell: bash
+      run: |
+        sudo apt-get update
+        sudo apt-get install --yes bsdutils
+        sudo apt-get install --yes build-essential
+        sudo apt-get install --yes pkgconf
+        sudo apt-get install --yes llvm clang
+        sudo apt-get install --yes libelf-dev
