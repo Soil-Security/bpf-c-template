@@ -49,9 +49,46 @@ This template repository contains also the [Release](.github/workflows/release.y
 workflow to relase a new version of the `bootstrap.tar.gz` archive whenever a
 new version of the Bootstrap application is released.
 
+To build and run the Bootstrap application on macOS you can use Lima and the
+[bpf-c-template.yaml](bpf-c-template.yaml) virtual machine template. Lima
+launches Linux virtual machines with automatic file sharing and port
+forwarding (similar to WSL2).
+
+```
+brew install lima
+```
+
+```
+git clone --recurse-submodules git@github.com:danielpacak/bpf-c-template.git
+cd bpf-c-template
+```
+
+or
+
+```
+git clone git@github.com:danielpacak/bpf-c-template.git
+cd bpf-c-template
+git submodule update --init --recursive
+```
+
+```
+limactl create --name=bpf-c-template bpf-c-template.yaml
+limactl start bpf-c-template
+limactl shell bpf-c-template
+```
+
+```
+dpacak@lima-bpf-c-template:/Users/dpacak/go/src/github.com/danielpacak/bpf-c-template$ make
+dpacak@lima-bpf-c-template:/Users/dpacak/go/src/github.com/danielpacak/bpf-c-template$ sudo ./bootstrap
+TIME     EVENT COMM             PID     PPID    FILENAME/EXIT CODE
+09:41:27 EXEC  ls               6071    6054    /usr/bin/ls
+09:41:27 EXIT  ls               6071    6054    [0] (3ms)
+```
+
 [libbpf/libbpf]: https://github.com/libbpf/libbpf/
 [libbpf/bpftool]: https://github.com/libbpf/bpftool/
 [libbpf/libbpf-bootstrap]: https://github.com/libbpf/libbpf-bootstrap/
 [CO-RE]: https://nakryiko.com/posts/bpf-portability-and-co-re/
 [LLVM]: https://llvm.org/
 [Clang]: https://clang.llvm.org/
+[Lima]: https://lima-vm.io/
