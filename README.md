@@ -1,10 +1,12 @@
 # bpf-c-template
 
 A GitHub template repository with the scaffolding for a BPF application
-developed with [libbpf/libbpf] and BPF CO-RE. The loader is written in C and
+developed with [libbpf/libbpf] and BPF [CO-RE]. The loader is written in C and
 leverages the skeleton generated with the [libbpf/bpftool] command.
+BPF programs are written in C and compiled to BPF bytecode with [LLVM] and
+[Clang].
 
-A sample BFP code is the Bootstrap application introduced by the
+A sample BPF code is the Bootstrap application introduced by the
 [libbpf/libbpf-bootstrap] project. It tracks process starts and exits and emits
 data about filename, PID and parent PID, as well as exit status of the process life.
 
@@ -41,6 +43,15 @@ for any corresponding short options.
 Report bugs to <pacak.daniel@gmail.com>.
 ```
 
+![Architecture](README/architecture.png)
+
+This template repository contains also the [Release](.github/workflows/release.yaml)
+workflow to relase a new version of the `bootstrap.tar.gz` archive whenever a
+new version of the Bootstrap application is released.
+
 [libbpf/libbpf]: https://github.com/libbpf/libbpf/
 [libbpf/bpftool]: https://github.com/libbpf/bpftool/
 [libbpf/libbpf-bootstrap]: https://github.com/libbpf/libbpf-bootstrap/
+[CO-RE]: https://nakryiko.com/posts/bpf-portability-and-co-re/
+[LLVM]: https://llvm.org/
+[Clang]: https://clang.llvm.org/
