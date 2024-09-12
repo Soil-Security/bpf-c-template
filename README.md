@@ -49,7 +49,7 @@ This template repository contains also the [Release](.github/workflows/release.y
 workflow to relase a new version of the `bootstrap.tar.gz` archive whenever a
 new version of the Bootstrap application is released.
 
-To build and run the Bootstrap application on macOS you can use Lima and the
+To build and run the Bootstrap application on macOS you can use [Lima] and the
 [bpf-c-template.yaml](bpf-c-template.yaml) virtual machine template. Lima
 launches Linux virtual machines with automatic file sharing and port
 forwarding (similar to WSL2).
@@ -59,14 +59,14 @@ brew install lima
 ```
 
 ```
-git clone --recurse-submodules git@github.com:danielpacak/bpf-c-template.git
+git clone --recurse-submodules git@github.com:Soil-Security/bpf-c-template.git
 cd bpf-c-template
 ```
 
 or
 
 ```
-git clone git@github.com:danielpacak/bpf-c-template.git
+git clone git@github.com:Soil-Security/bpf-c-template.git
 cd bpf-c-template
 git submodule update --init --recursive
 ```
@@ -78,8 +78,8 @@ limactl shell bpf-c-template
 ```
 
 ```
-dpacak@lima-bpf-c-template:/Users/dpacak/go/src/github.com/danielpacak/bpf-c-template$ make
-dpacak@lima-bpf-c-template:/Users/dpacak/go/src/github.com/danielpacak/bpf-c-template$ sudo ./bootstrap
+dpacak@lima-bpf-c-template:/Users/dpacak/go/src/github.com/Soil-Security/bpf-c-template$ make
+dpacak@lima-bpf-c-template:/Users/dpacak/go/src/github.com/Soil-Security/bpf-c-template$ sudo ./bootstrap
 TIME     EVENT COMM             PID     PPID    FILENAME/EXIT CODE
 09:41:27 EXEC  ls               6071    6054    /usr/bin/ls
 09:41:27 EXIT  ls               6071    6054    [0] (3ms)
